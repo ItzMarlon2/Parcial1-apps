@@ -18,8 +18,7 @@ This is a RESTful API built using **Java 21**, **Spring Boot**, and **JPA** for 
 
 ### 👥 Clone the Repository
 ```sh
-git clone https://github.com/your-repo.git
-cd restaurant-order-management
+git clone https://github.com/ItzMarlon2/Parcial1-apps
 ```
 
 ### 🧑‍💻 Run the Database with Docker
