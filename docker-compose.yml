@@ -1,0 +1,36 @@
+version: '3.7'
+services:
+  db:
+    build: 
+      context: ./MySQL
+      dockerfile: Dockerfile
+    container_name: parcial1_apps
+    restart: always
+    ports:  
+      - 5500:3306
+    volumes:  
+      - ./Config/mysql:/var/lib/mysql
+    hostname: apps_database
+    networks:
+      - eam_apps
+    healthcheck:
+        test: ["CMD","mysql", "-u", "marlon", "-p1317"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+# --------------------------------------------------------------------
+  # - The adminer is a tool for managing content in databases.
+  adminer:
+    image: adminer
+    container_name: adminer_wms
+    restart: always
+    ports:
+      - 8000:8080
+    networks:
+      - eam_apps
+# --------------------------------------------------------------------
+
+networks:
+  eam_apps:
+      driver: bridge
+      name: eam_apps
